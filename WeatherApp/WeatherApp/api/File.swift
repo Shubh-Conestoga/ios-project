@@ -41,7 +41,9 @@ public class APICaller
         {
             setCityName(cityName: city)
         }
+        finalQuery.append("&units=metric")
         let url = URL(string: finalQuery)
+        print(finalQuery)
         let session = URLSession(configuration: .default)
         let dataTask = session.dataTask(with: url!, completionHandler: {data,_,error  in
             
