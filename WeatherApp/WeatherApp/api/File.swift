@@ -33,6 +33,7 @@ public class APICaller
     public func setCityName(cityName:String)
     {
         finalQuery += "&\(cityQuery)\(cityName)"
+        setAny = true
     }
     
     func callApi(completion: @escaping (MyResponse)->())

@@ -42,7 +42,7 @@
 		05C2CAF02755391200C4CF37 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05C2CAF32755391200C4CF37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05C2CAF52755391200C4CF37 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		05C2CAF72755391200C4CF37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05C2CAF72755391200C4CF37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
 		05C2CAFA2755391200C4CF37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05C2CAFD2755391200C4CF37 /* WeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		05C2CAFF2755391B00C4CF37 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,9 +75,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0582C104275E993D00F9581A /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				05C2CAF32755391200C4CF37 /* AppDelegate.swift */,
+				05C2CAF52755391200C4CF37 /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		05992C782756362300C16777 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				05C2CAF72755391200C4CF37 /* ViewController.swift */,
 				052AF04127579A4500BF2546 /* CityCell.swift */,
 				05992C792756364300C16777 /* UserMapViewController.swift */,
 				05568B2A27577DCC00FF89B7 /* CitiesDataViewController.swift */,
@@ -108,12 +118,10 @@
 		05C2CAF22755391200C4CF37 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				0582C104275E993D00F9581A /* Delegate */,
 				05568B2227576BC000FF89B7 /* Model */,
 				05992C782756362300C16777 /* controller */,
 				05C2CB11275539CE00C4CF37 /* api */,
-				05C2CAF32755391200C4CF37 /* AppDelegate.swift */,
-				05C2CAF52755391200C4CF37 /* SceneDelegate.swift */,
-				05C2CAF72755391200C4CF37 /* ViewController.swift */,
 				05C2CAF92755391200C4CF37 /* Main.storyboard */,
 				05C2CAFF2755391B00C4CF37 /* Assets.xcassets */,
 				05C2CB012755391B00C4CF37 /* LaunchScreen.storyboard */,

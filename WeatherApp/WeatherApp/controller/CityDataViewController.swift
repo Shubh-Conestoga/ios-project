@@ -29,7 +29,15 @@ class CityDataViewController: UIViewController {
         activityBar.startAnimating()
         
         let api = APICaller()
-        api.setLonAndLat(lon: data!.lat, lat: data!.log)
+        if data?.log == nil && data?.lat == nil && data?.log == 0 && data?.lat == 0
+        {
+            api.setLonAndLat(lon: data!.log, lat: data!.lat)
+        }
+        else
+        {
+            let myCity = city ?? "Waterloo"
+            api.setCityName(cityName: myCity)
+        }
         
         api.callApi(completion: {result in
             DispatchQueue.main.async {
@@ -41,11 +49,12 @@ class CityDataViewController: UIViewController {
                 
                 self.weatherlabel.text = result.weather.first?.main
                 self.windLabel.text = String(format:"%.2f",result.wind.speed)
-                self.humidityLabel.text = String(format:"%.2f",result.main.humidity)
+                self.humidityLabel.text = "\(result.main.humidity)%"
                 
                 self.cityLabel.text = self.city
                 print("\(String(format: "%.2f",(result.main.temp)))\u{00b0}")
                 self.degreeLabel.text = "\(String(format: "%.2f",(result.main.temp)))\u{00b0}"
+                print("\(String(format: "%0.2f", result.main.temp))")
                 let url = URL(string: "\(WEATHER_ICON_API)\(result.weather.first!.icon).png")
                 print("filterusingthis \(url!.absoluteURL)")
                 let data = try? Data(contentsOf: url!)

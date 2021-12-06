@@ -22,7 +22,6 @@ class CitiesDataViewController: UIViewController,UITableViewDataSource,UITableVi
         cituTableView.dataSource = self
         cituTableView.delegate = self
         fetchCitiesData()
-        fetchAPIData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +79,7 @@ class CitiesDataViewController: UIViewController,UITableViewDataSource,UITableVi
             }
             
             self.fetchCitiesData()
-            self.fetchAPIData()
+            
             
         }
         
@@ -109,34 +108,14 @@ class CitiesDataViewController: UIViewController,UITableViewDataSource,UITableVi
         return UISwipeActionsConfiguration(actions: [action])
     }
     
-    func fetchAPIData()
-    {
-        
-        
-        for city in self.cityData!
-        {
-            let apiCaller = APICaller()
-            apiCaller.setCityName(cityName: city.name!)
-            
-            apiCaller.callApi()
-            {
-                response in
-                city.temp=response.main.temp
-                print("\(String(city.name!)) \(response.main.temp)")
-            }
-        }
-        
-        DispatchQueue.main.async {
-            self.cituTableView.reloadData()
-        }
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = indexPath.row
         let data = self.cityData![index]
         print("Clicked - \(data.name!)")
         let dest = storyboard?.instantiateViewController(withIdentifier:"detailsVC" ) as! CityDataViewController
-        
+        print("lat\(data.lat)")
+        print("log\(data.log)")
         dest.data = data
         dest.city = data.name
         self.navigationController?.pushViewController(dest, animated: true)
