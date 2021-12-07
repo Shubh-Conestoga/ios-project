@@ -7,6 +7,7 @@
 
 import UIKit
 
+//tabel cell custom view
 class CityCell: UITableViewCell {
 
 

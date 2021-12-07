@@ -7,6 +7,7 @@
 
 import UIKit
 
+//Tabel cell clicked view
 class CityDataViewController: UIViewController {
 
     @IBOutlet weak var cityLabel: UILabel!
@@ -16,29 +17,31 @@ class CityDataViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var windLabel: UILabel!
     
+    //thses data will be set from citiesdataviewcontroller
     var data:CityCore? = nil
     var city:String? = nil
     
     @IBOutlet weak var activityBar: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //hinding values and showing activity bar till the api process and send the result
         cityLabel.isHidden = true
         imageView.isHidden = true
         degreeLabel.isHidden = true
         activityBar.startAnimating()
         
         let api = APICaller()
-        if data?.log == nil && data?.lat == nil && data?.log == 0 && data?.lat == 0
-        {
-            api.setLonAndLat(lon: data!.log, lat: data!.lat)
-        }
-        else
+        //if lat and log is 0, 0 then search by cityname else search weather data using lag and log
+        if (data?.log == nil && data?.lat == nil) || (data?.log == 0 && data?.lat == 0)
         {
             let myCity = city ?? "Waterloo"
             api.setCityName(cityName: myCity)
         }
-        
+        else
+        {
+            api.setLonAndLat(lon: data!.log, lat: data!.lat)
+        }
+        //calling api and setting the data
         api.callApi(completion: {result in
             DispatchQueue.main.async {
                 self.activityBar.stopAnimating()

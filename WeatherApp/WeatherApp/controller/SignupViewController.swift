@@ -21,40 +21,44 @@ class SignupViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
     
     @IBAction func signupBtnClicked(_ sender: Any) {
         
+        //cheking input data
         guard let email = emailText.text , !email.isEmpty else
         {
-            showAlert(for:"Please enter an email")
+            ShowAlert(for:"Please enter an email")
             return
         }
         guard let pwd = pwdText.text , !pwd.isEmpty else
         {
-            showAlert(for:"Please emter password of atleast 6 lettes")
+            ShowAlert(for:"Please emter password of atleast 6 lettes")
             return
         }
         guard let cfPwd = reptPwdText.text, !cfPwd.isEmpty else
         {
-            showAlert(for:"Please enter repeat password")
+            ShowAlert(for:"Please enter repeat password")
             return
         }
+//        checking if repeat pwd and pwd is same
         guard cfPwd == pwd else
         {
-            showAlert(for:"Please enter repeat password")
+            ShowAlert(for:"Please enter repeat password")
             return
         }
         
+        //registering user using firebase api
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: pwd, completion: {
             res,error in
+            //if any error then showing the error
             guard error==nil else
             {
-                self.showAlert(for: "Something went wrong!")
+                self.ShowAlert(for: "Something went wrong!")
                 
                 return
             }
+            //showing alert controller on register success
             let alertSuccess = UIAlertController(title:"Registration Success", message: "\(email) registred successfully! Please login for using our services!", preferredStyle: .alert)
             alertSuccess.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alertSuccess, animated: true, completion: nil)
@@ -63,7 +67,8 @@ class SignupViewController: UIViewController {
         
     }
     
-    func showAlert(for msg:String)
+    //for showing error using alertController
+    func ShowAlert(for msg:String)
     {
         let alert = UIAlertController(title: "Invalid data", message: msg, preferredStyle: .alert)
         

@@ -7,7 +7,14 @@
         <attribute name="temp" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="url" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="personEmail" optional="YES" attributeType="String"/>
+        <attribute name="personId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="personName" optional="YES" attributeType="String"/>
+        <attribute name="personPassword" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="CityCore" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Person" positionX="-63" positionY="18" width="128" height="103"/>
     </elements>
 </model>
