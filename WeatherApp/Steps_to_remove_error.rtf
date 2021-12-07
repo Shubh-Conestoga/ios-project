@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 If u get error regarding firebase then perform below steps\
+\
+1> Go to project folder delete podfile , pod file.lock files and .workspace file and pods folder\
+\
+2> now open terminal in project folder and write \'93pod init\'94 command\
+\
+3> now write \'93open podfile\'94 command in terminal and replace the contents of that file with below \
+\
+# Uncomment the next line to define a global platform for your project\
+ platform :ios, '9.0'\
+\
+target 'WeatherApp' do\
+  # Comment the next line if you don't want to use dynamic frameworks\
+  use_frameworks!\
+pod 'Firebase/Core'\
+pod 'Firebase/Auth'\
+end\
+\
+4> now write \'93pod install\'94 command to install the dependencies\
+\
+5> after the completion of installation of dependency close the terminal \
+\
+6> open WeatherApp.xcworkspace file to open the project then run the project\
+\
+}

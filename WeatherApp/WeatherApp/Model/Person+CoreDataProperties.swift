@@ -2,7 +2,7 @@
 //  Person+CoreDataProperties.swift
 //  WeatherApp
 //
-//  Created by user199008 on 12/7/21.
+//  Created by user199008 on 12/3/21.
 //
 //
 
